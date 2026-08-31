@@ -109,7 +109,7 @@ EXPOSE 80
 The website is built using simple HTML files.
 
 <p align="center">
-  <img src="screenshots/website-html-code.png" width="850">
+  <img src="Screenshots/website-html-code.png" width="850">
 </p>
 
 ---
@@ -153,7 +153,7 @@ docker run -d -p 8080:80 --name website html-website
 Running container:
 
 <p align="center">
-  <img src="screenshots/docker-container-running.png" width="850">
+  <img src="Screenshots/docker-container-running.png" width="850">
 </p>
 
 ---
@@ -167,7 +167,7 @@ http://localhost:8080
 ```
 
 <p align="center">
-  <img src="screenshots/website-preview.png" width="850">
+  <img src="Screenshots/website-preview.png" width="850">
 </p>
 
 ---
