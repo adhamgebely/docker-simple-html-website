@@ -8,21 +8,18 @@
 
 A simple DevOps project demonstrating how to deploy a static HTML website using **Nginx inside a Docker container**.
 
-The project shows the basic workflow of containerizing a web application:
+The project covers the complete containerization workflow:
 
 ```text
-HTML/CSS Files
-        |
-        ↓
-Dockerfile
-        |
-        ↓
+HTML Website
+      |
+      ↓
 Docker Image
-        |
-        ↓
+      |
+      ↓
 Nginx Container
-        |
-        ↓
+      |
+      ↓
 Web Browser
 ```
 
@@ -31,27 +28,20 @@ Web Browser
 # 🏗 Architecture
 
 ```text
-              User Browser
+             User Browser
 
-                    |
-                    |
-                    ↓
+                  |
+                  |
+                  ↓
 
           Nginx Docker Container
 
-                    |
-                    |
-                    ↓
+                  |
+                  |
+                  ↓
 
-        Static HTML / CSS Website
+        Static HTML Website Files
 ```
-
-The application flow:
-
-1. User sends an HTTP request from the browser.
-2. Nginx running inside Docker receives the request.
-3. Nginx serves the static website files.
-4. The website is displayed in the browser.
 
 ---
 
@@ -59,17 +49,16 @@ The application flow:
 
 - Static HTML website deployment
 - Nginx web server
-- Docker containerization
-- Lightweight deployment
-- Easy local setup
-- Portable environment
+- Docker image creation
+- Container-based deployment
+- Portable development environment
+- Simple production-style workflow
 
 ---
 
 # 🛠 Technologies Used
 
 - HTML
-- CSS
 - Nginx
 - Docker
 - Linux
@@ -82,12 +71,12 @@ The application flow:
 ```text
 docker-simple-html-website/
 
-├── Dockerfile
 ├── index.html
-├── css/
-│
-├── images/
-│
+├── Dockerfile
+├── screenshots/
+│   ├── website-html-code.png
+│   ├── docker-container-running.png
+│   └── website-preview.png
 └── README.md
 ```
 
@@ -105,25 +94,35 @@ COPY . /usr/share/nginx/html
 EXPOSE 80
 ```
 
-## Dockerfile Explanation
+## Explanation
 
-| Instruction | Description |
+| Command | Purpose |
 |---|---|
-| FROM | Uses the official Nginx image |
-| COPY | Copies website files into Nginx web directory |
-| EXPOSE | Opens port 80 for HTTP traffic |
+| FROM | Uses official Nginx image |
+| COPY | Copies website files into Nginx directory |
+| EXPOSE | Opens HTTP port |
+
+---
+
+# 📄 Website Files
+
+The website is built using simple HTML files.
+
+<p align="center">
+  <img src="screenshots/website-html-code.png" width="850">
+</p>
 
 ---
 
 # 🚀 Run the Project
 
-## 1. Clone Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/adhamgebely/docker-simple-html-website.git
 ```
 
-Move into the project:
+Move into project folder:
 
 ```bash
 cd docker-simple-html-website
@@ -131,13 +130,13 @@ cd docker-simple-html-website
 
 ---
 
-## 2. Build Docker Image
+## Build Docker Image
 
 ```bash
 docker build -t html-website .
 ```
 
-Check created images:
+Check images:
 
 ```bash
 docker images
@@ -145,33 +144,27 @@ docker images
 
 ---
 
-## 3. Run Container
-
-Run the website:
+## Create and Run Container
 
 ```bash
 docker run -d -p 8080:80 --name website html-website
 ```
 
-Check running containers:
+Running container:
 
-```bash
-docker ps
-```
+<p align="center">
+  <img src="screenshots/docker-container-running.png" width="850">
+</p>
 
 ---
 
-# 🌐 Access Website
+# 🌐 Website Preview
 
-Open your browser:
+Open:
 
 ```text
 http://localhost:8080
 ```
-
----
-
-# 📸 Website Preview
 
 <p align="center">
   <img src="screenshots/website-preview.png" width="850">
@@ -179,52 +172,36 @@ http://localhost:8080
 
 ---
 
-# 🐳 Container Management Commands
+# 📋 Useful Docker Commands
 
-## View running containers
+View containers:
 
 ```bash
 docker ps
 ```
 
-## View container logs
+View logs:
 
 ```bash
 docker logs website
 ```
 
-## Stop container
+Stop container:
 
 ```bash
 docker stop website
 ```
 
-## Remove container
+Remove container:
 
 ```bash
 docker rm website
 ```
 
-## Remove image
+Remove image:
 
 ```bash
 docker rmi html-website
-```
-
----
-
-# 🧹 Cleanup
-
-Remove stopped containers:
-
-```bash
-docker container prune
-```
-
-Remove unused images:
-
-```bash
-docker image prune
 ```
 
 ---
@@ -234,10 +211,10 @@ docker image prune
 Through this project:
 
 - Learned Docker image creation
-- Deployed a static website using Nginx
-- Understood container ports mapping
-- Learned basic Docker workflow
-- Practiced container lifecycle management
+- Deployed static websites using Nginx
+- Practiced container port mapping
+- Understood Docker container lifecycle
+- Learned basic DevOps deployment workflow
 
 ---
 
@@ -246,9 +223,4 @@ Through this project:
 **Adham Gebely**
 
 GitHub:
-
 https://github.com/adhamgebely
-
----
-
-⭐ If you found this project useful, consider giving it a star.
